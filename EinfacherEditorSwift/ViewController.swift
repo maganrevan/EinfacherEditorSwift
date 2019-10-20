@@ -2,8 +2,9 @@
 //  ViewController.swift
 //  EinfacherEditorSwift
 //
-//  Created by Christoph Siebeck
+//  Created by Christoph Siebeck & Magnus Kruschwitz
 //  Copyright © 2017 Christoph Siebeck. All rights reserved.
+//  Copyright © 2019 Magnus Kruschwitz. All rights reserved. (Betrifft diei erweiterten Funktionalitäten)
 //
 
 import Cocoa
