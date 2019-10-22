@@ -21,9 +21,22 @@ class filehandler {
         self.bIsLoad = false
     }
     
-    func save(field: NSTextField) -> Bool {
-        if self.iSaveCounter > 0 || self.bIsLoad {
-            
+    func save(field: NSTextField, bforceSavePanel: Bool) -> Bool {
+        if (self.iSaveCounter > 0 || self.bIsLoad) && !bforceSavePanel {
+            do {
+                let textTemp = field.stringValue
+                let bSaveResult = self.createBackUp(file: self.sFile!, content: textTemp, isSave: true)
+                
+                if bSaveResult {
+                    print("File wurde gespeichert")
+                }
+                return true
+                
+            }
+            catch {
+                print(error.localizedDescription)
+                return false
+            }
         }
         else {
             let mySaveDialog = NSSavePanel()
@@ -69,7 +82,7 @@ class filehandler {
                 field.stringValue = textTemp
                 
                 if bCreateBackup {
-                    bBackupResult = self.createBackUp(file: self.sFile!, content: textTemp)
+                    bBackupResult = self.createBackUp(file: self.sFile!, content: textTemp, isSave: false)
                 }
                 
                 self.bIsLoad = true
@@ -94,24 +107,36 @@ class filehandler {
         return false
     }
     
-    func createBackUp(file: String, content: String) -> Bool {
+    func createBackUp(file: String, content: String, isSave: Bool) -> Bool {
         let oFileManager = FileManager.default
-        let backupURL = URL(string: "\((file as NSString).deletingPathExtension).bak")
+        var sExtension = ""
+        var sFileName = ""
+        
+        if isSave {
+            sExtension = "txt"
+            sFileName = "File"
+        }
+        else {
+            sExtension = "bak"
+            sFileName = "Backup"
+        }
+        
+        let backupURL = URL(string: "\((file as NSString).deletingPathExtension).\(sExtension)")
         
         do {
             if oFileManager.fileExists(atPath: (backupURL?.path)!) {
-                print("Backup existiert.")
-                print("Lösche vorhandens Backup und lege ein Neues an.")
+                print("\(sFileName) existiert.")
+                print("Lösche vorhandens \(sFileName) und lege ein Neues an.")
                 try oFileManager.removeItem(atPath: (backupURL?.absoluteString)!)
-                print("Backupfile gelöscht")
+                print("\(sFileName) gelöscht")
             }
             else {
-                print("Backup existiert nicht")
+                print("\(sFileName) existiert nicht")
             }
             
-            print("lege Backup an.")
-            try content.write(toFile: "\((file as NSString).deletingPathExtension).bak",atomically: true, encoding: .utf8)
-            print("Backup erfolgreich angelegt unter \(String(describing: backupURL?.absoluteString)).")
+            print("lege \(sFileName) an.")
+            try content.write(toFile: "\((file as NSString).deletingPathExtension).\(sExtension)",atomically: true, encoding: .utf8)
+            print("\(sFileName) erfolgreich angelegt unter \(String(describing: backupURL?.absoluteString)).")
             
         } catch {
             print(error.localizedDescription)

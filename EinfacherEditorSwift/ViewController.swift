@@ -4,7 +4,7 @@
 //
 //  Created by Christoph Siebeck & Magnus Kruschwitz
 //  Copyright © 2017 Christoph Siebeck. All rights reserved.
-//  Copyright © 2019 Magnus Kruschwitz. All rights reserved. (Betrifft diei erweiterten Funktionalitäten)
+//  Copyright © 2019 Magnus Kruschwitz. All rights reserved. (Betrifft die erweiterten Funktionalitäten)
 //
 
 import Cocoa
@@ -26,9 +26,20 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func speichernAlsClicked(sender: AnyObject) {
+        let bIsSave = fileHandler.save(field: meinTextfeld, bforceSavePanel: true)
+        
+        if bIsSave {
+            print("save 1")
+        }
+        else {
+            print("save 0")
+        }
+    }
+    
     //die Action für das Speichern
     @IBAction func speichernClicked(sender: AnyObject) {
-        let bIsSave = fileHandler.save(field: meinTextfeld)
+        let bIsSave = fileHandler.save(field: meinTextfeld, bforceSavePanel: false)
         
         if bIsSave {
             print("save 1")
