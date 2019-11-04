@@ -16,9 +16,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var meinTextfeld: NSTextField!
     
     @IBAction func ladenClicked(sender: AnyObject) {
-        let bIsLoaded = helper.load(bCreateBackup: true, field: meinTextfeld)
         
-        if bIsLoaded {
+        if helper.load(bCreateBackup: true, field: meinTextfeld) {
             print("load 1")
         }
         else {
@@ -27,9 +26,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func speichernAlsClicked(sender: AnyObject) {
-        let bIsSave = helper.save(field: meinTextfeld, bforceSavePanel: true)
         
-        if bIsSave {
+        if helper.save(field: meinTextfeld, bforceSavePanel: true) {
             print("save 1")
         }
         else {
@@ -39,9 +37,8 @@ class ViewController: NSViewController {
     
     //die Action für das Speichern
     @IBAction func speichernClicked(sender: AnyObject) {
-        let bIsSave = helper.save(field: meinTextfeld, bforceSavePanel: false)
         
-        if bIsSave {
+        if helper.save(field: meinTextfeld, bforceSavePanel: false) {
             print("save 1")
         }
         else {
