@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class filehandler {
+class helperClass {
     private var aFileTypes : Array<String>
     private var iSaveCounter : Int
     private var bIsLoad : Bool
@@ -23,15 +23,12 @@ class filehandler {
     
     func save(field: NSTextField, bforceSavePanel: Bool) -> Bool {
         if (self.iSaveCounter > 0 || self.bIsLoad) && !bforceSavePanel {
-            
             let textTemp = field.stringValue
-            let bSaveResult = self.createBackUp(file: self.sFile!, content: textTemp, isSave: true)
             
-            if bSaveResult {
+            if self.createBackUp(file: self.sFile!, content: textTemp, isSave: true) {
                 print("File wurde gespeichert")
+                return true
             }
-            return true
-                
         }
         else {
             let mySaveDialog = NSSavePanel()

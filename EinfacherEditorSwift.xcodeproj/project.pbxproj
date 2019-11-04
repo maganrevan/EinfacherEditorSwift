@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D44A18D235AD3360042B443 /* class.filehandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D44A18C235AD3360042B443 /* class.filehandler.swift */; };
+		5D7E861E2370C62800FC58ED /* class.helperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7E861D2370C62800FC58ED /* class.helperClass.swift */; };
 		F17162B21E3F4C81004CFA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17162B11E3F4C81004CFA2C /* AppDelegate.swift */; };
 		F17162B41E3F4C81004CFA2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17162B31E3F4C81004CFA2C /* ViewController.swift */; };
 		F17162B61E3F4C81004CFA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17162B51E3F4C81004CFA2C /* Assets.xcassets */; };
@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D44A18C235AD3360042B443 /* class.filehandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = class.filehandler.swift; sourceTree = "<group>"; };
+		5D7E861D2370C62800FC58ED /* class.helperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = class.helperClass.swift; sourceTree = "<group>"; };
 		F17162AE1E3F4C81004CFA2C /* EinfacherEditorSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EinfacherEditorSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17162B11E3F4C81004CFA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17162B31E3F4C81004CFA2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 				F17162B51E3F4C81004CFA2C /* Assets.xcassets */,
 				F17162B71E3F4C81004CFA2C /* Main.storyboard */,
 				F17162BA1E3F4C81004CFA2C /* Info.plist */,
-				5D44A18C235AD3360042B443 /* class.filehandler.swift */,
+				5D7E861D2370C62800FC58ED /* class.helperClass.swift */,
 			);
 			path = EinfacherEditorSwift;
 			sourceTree = "<group>";
@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					F17162AD1E3F4C81004CFA2C = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -105,6 +106,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -135,8 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7E861E2370C62800FC58ED /* class.helperClass.swift in Sources */,
 				F17162B41E3F4C81004CFA2C /* ViewController.swift in Sources */,
-				5D44A18D235AD3360042B443 /* class.filehandler.swift in Sources */,
 				F17162B21E3F4C81004CFA2C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +256,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = siebeck.EinfacherEditorSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -267,7 +270,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = siebeck.EinfacherEditorSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

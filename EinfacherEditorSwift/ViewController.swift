@@ -11,12 +11,12 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    var fileHandler = filehandler(aFileTypes: ["txt"])
+    var helper = helperClass(aFileTypes: ["txt"])
 
     @IBOutlet weak var meinTextfeld: NSTextField!
     
     @IBAction func ladenClicked(sender: AnyObject) {
-        let bIsLoaded = fileHandler.load(bCreateBackup: true, field: meinTextfeld)
+        let bIsLoaded = helper.load(bCreateBackup: true, field: meinTextfeld)
         
         if bIsLoaded {
             print("load 1")
@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func speichernAlsClicked(sender: AnyObject) {
-        let bIsSave = fileHandler.save(field: meinTextfeld, bforceSavePanel: true)
+        let bIsSave = helper.save(field: meinTextfeld, bforceSavePanel: true)
         
         if bIsSave {
             print("save 1")
@@ -39,7 +39,7 @@ class ViewController: NSViewController {
     
     //die Action für das Speichern
     @IBAction func speichernClicked(sender: AnyObject) {
-        let bIsSave = fileHandler.save(field: meinTextfeld, bforceSavePanel: false)
+        let bIsSave = helper.save(field: meinTextfeld, bforceSavePanel: false)
         
         if bIsSave {
             print("save 1")
